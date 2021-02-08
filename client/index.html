@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <div id="name-user">guest</div>
+        <div onclick="localStorage['information']=''; location.replace('sign-in')" id="sign-btn" class="headerOption sign-btn-head">sign out</div>
+        <div id="username"></div> 
+    </div>
+    <div id="container">
+        <div class="head">
+            <div id="button-boxes">    
+            </div>
+            <div class="server-btn">
+                <button id="upload-btn" onclick="app.Controler.uploadBtn()">Upload</button>
+                <button id="download-btn" onclick="app.Controler.downloadBtn()">Download</button>
+                <button class="showall" onclick="app.Controler.changeStateButton(0)">All</button>
+                <button onclick="app.Controler.changeStateButton(1)">Active</button>
+                <button onclick="app.Controler.changeStateButton(2)">Completed</button>
+            </div>
+            <input id="newTask" type="text" placeholder="what to do ?">
+        </div>
+        <div id="addNew">
+        <button  id="addNewBtn" onclick="app.Controler.newTask()">Add</button>
+        </div>
+        <div id="content">
+            <div id="table-list"></div>
+        </div>
+    </div>
+    <div id="editContainer">
+        <input type="text" id="editbox">
+        <div onclick="app.Controler.editOkBnt()" id="editbtn">ok</div>
+    </div>
+    <script src="model.js"></script>
+    <script src="view.js"></script>
+    <script src="Controler.js"></script>
+    <script>
+        app.Controler.loadPage();
+    </script>
+</body>
+</html>
